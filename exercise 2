@@ -1,0 +1,119 @@
+import java.util.Stack;
+
+class Book {
+    String title;
+    String author;
+    String isbn;
+
+    public Book(String title, String author, String isbn) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+
+    // Getter methods for the properties (not necessary for the assignment, but useful)
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+}
+
+class BookStack {
+    private Stack<Book> stack;
+
+    public BookStack() {
+        stack = new Stack<>();
+    }
+
+    public void push(Book book) {
+        stack.push(book);
+    }
+
+    public Book pop() {
+        return stack.pop();
+    }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public int size() {
+        return stack.size();
+    }
+
+    public Book peek() {
+        return stack.peek();
+    }
+
+    // Method to walk over the stack and report on the titles of each book
+    public void reportTitles() {
+        System.out.println("Books in the stack:");
+        for (Book book : stack) {
+            System.out.println(book.getTitle());
+            System.out.println(book.getAuthor());
+            System.out.println(book.getIsbn());
+        }
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        BookStack bookStack = new BookStack();
+
+        // Pushing 10 books to the stack
+        bookStack.push(new Book("Title A", "Author A", "ISBN A"));
+        bookStack.push(new Book("Title B", "Author B", "ISBN B"));
+        bookStack.push(new Book("Title C", "Author C", "ISBN C"));
+        bookStack.push(new Book("Title D", "Author D", "ISBN D"));
+        bookStack.push(new Book("Title E", "Author E", "ISBN E"));
+        bookStack.push(new Book("Title F", "Author F", "ISBN F"));
+        bookStack.push(new Book("Title G", "Author G", "ISBN G"));
+        bookStack.push(new Book("Title H", "Author H", "ISBN H"));
+        bookStack.push(new Book("Title I", "Author I", "ISBN I"));
+        bookStack.push(new Book("Title J", "Author J", "ISBN J"));
+
+        // Report on the titles of each book in the stack
+        bookStack.reportTitles();
+        System.out.println("Stack size: " + bookStack.size());
+
+
+
+        // Popping a book from the stack
+
+        Book poppedBook = bookStack.pop();
+
+        System.out.println("Popped book: " + poppedBook.title);
+
+        System.out.println("Stack size: " + bookStack.size());
+
+        // Checking if the stack is empty
+
+        System.out.println("Is stack empty? " + bookStack.isEmpty());
+
+
+
+        // Peeking at the top book
+
+        Book topBook = bookStack.peek();
+
+        System.out.println("Top book: " + topBook.title);
+
+        System.out.println("Is stack empty? " + bookStack.isEmpty());
+
+        System.out.println("Stack size: " + bookStack.size());
+
+        System.out.println("Popped book: " + poppedBook.title);
+
+    
+
+
+        
+    }
+}
